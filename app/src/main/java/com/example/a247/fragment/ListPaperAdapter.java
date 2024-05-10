@@ -1,5 +1,6 @@
-package com.example.a247;
+package com.example.a247.fragment;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.a247.ListPaper;
+import com.example.a247.R;
+
 import java.util.List;
 
 public class ListPaperAdapter extends RecyclerView.Adapter<ListPaperAdapter.ListPaperHolder>{
-    private HomeFragment context;
+    private Context context;
     private List<ListPaper> paperList;
 
-    public ListPaperAdapter(HomeFragment context) {
+    public ListPaperAdapter(Context context, List<ListPaper> paperList) {
         this.context = context;
+        this.paperList = paperList;
     }
 
     @NonNull

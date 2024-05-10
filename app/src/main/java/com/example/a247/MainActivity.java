@@ -3,19 +3,12 @@ package com.example.a247;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.a247.adapter.AdpterView;
-import com.example.a247.fragment.HomeFragment;
-import com.example.a247.fragment.MenuFragment;
 import com.example.a247.fragment.MyViewPager2Adapter;
-import com.example.a247.fragment.ReadThePaperFragment;
-import com.example.a247.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -95,5 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 }
