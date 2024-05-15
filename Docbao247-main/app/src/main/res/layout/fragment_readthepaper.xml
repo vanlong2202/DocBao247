@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="20sp">
+        <ImageView
+            android:layout_marginStart="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo1"/>
+
+        <TextView
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="ĐỌC BÁO"
+            android:fontFamily="@font/anton_regular"
+            android:textColor="#FF3366"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#EFEFEF"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20sp">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:src="@drawable/location_dot_solid__1_"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="Thứ 2, 08/05/2024"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:src="@drawable/clock_solid"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="12:33:11"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="3dp"
+                android:src="@drawable/cloud_solid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="20/30"/>
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="3dp"
+                android:src="@drawable/circle_regular"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="C"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="20sp"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="#FF3366"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Các thể loại"
+            android:fontFamily="@font/merriweathersans_bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center
+"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/img_thethao"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10sp"
+                android:src="@drawable/img_suckhoe"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10sp"
+                android:src="@drawable/img_chinhtri"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10sp"
+                android:src="@drawable/img_chungkhoan"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FEF7FF"
+    android:orientation="vertical"
+    tools:context=".fragment.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="20sp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="ĐỌC BÁO"
+            android:fontFamily="@font/anton_regular"
+            android:textColor="#1F41BB"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/anton_regular"
+            android:text="247"
+            android:textColor="#FF0000"/>
+
+    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp">-->
+
+<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#EFEFEF"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20sp">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:src="@drawable/location_dot_solid__1_"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="Thứ 2, 08/05/2024"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:src="@drawable/clock_solid"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="12:33:11"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="3dp"
+                android:src="@drawable/cloud_solid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:fontFamily="@font/arial2bold"
+                android:text="20/30"/>
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="3dp"
+                android:src="@drawable/circle_regular"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="C"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TIN TỨC HÔM NAY"
+        android:textColor="#FF3366"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_listpaper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
