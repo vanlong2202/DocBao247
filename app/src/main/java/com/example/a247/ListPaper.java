@@ -5,12 +5,14 @@ public class ListPaper {
     private String tv_title;
     private String tv_text;
     private String tv_time;
+    private String tv_categorypaper;
 
-    public ListPaper(int img_paper, String tv_title, String tv_text, String tv_time) {
+    public ListPaper(int img_paper, String tv_title, String tv_text, String tv_time,String tv_categorypaper) {
         this.img_paper = img_paper;
         this.tv_title = tv_title;
         this.tv_text = tv_text;
         this.tv_time = tv_time;
+        this.tv_categorypaper = tv_categorypaper;
     }
 
     public int getImg_paper() {
@@ -43,5 +45,13 @@ public class ListPaper {
 
     public void setTv_time(String tv_time) {
         this.tv_time = tv_time;
+    }
+
+    public String getTv_categorypaper() {
+        return tv_categorypaper;
+    }
+
+    public void setTv_categorypaper(String tv_categorypaper) {
+        this.tv_categorypaper = tv_categorypaper;
     }
 }

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".DetailReadPaper">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/logo1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/anton_regular"
+                android:text="CHI TIẾT BÀI VIẾT"
+                android:textColor="#FF3366"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:showDividers="end">
+
+        <LinearLayout
+            android:id="@+id/layout_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EBEBEB"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/merriweather_bold"
+                    android:text="Kinh Doanh"
+                    android:textColor="#1F41BB"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/arial_regular"
+                    android:text="Thứ 2, 22/02/2024, 15:15"
+                    android:textColor="#828282"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider"
+                android:orientation="vertical"
+                android:showDividers="end">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20sp"
+                    android:fontFamily="@font/merriweather_bold"
+                    android:text="Vì sao vàng miếng đấu thầu bị ế?"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20sp"
+                    android:fontFamily="@font/merriweather_regular"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="5sp"
+                    android:text="Công ty Nước giải khát Chương Dương lỗ gần 20 tỷ đồng trong ba tháng đầu năm và là quý thứ 13 liên tiếp kinh doanh dưới giá vốn.
+Báo cáo tài chính mới đây cho thấy, Công ty cổ phần Nước giải khát Chương Dương (SCD) có doanh thu khoảng 56,8 tỷ đồng, giảm 11% so với quý I/2022. Trong đó, doanh thu kinh doanh bất động sản đầu tư tăng gấp đôi, đạt hơn 6,2 tỷ đồng nhưng không đủ bù đắp so với phần thâm hụt của doanh thu bán thành phẩm (giảm gần 10 tỷ về 52,7 tỷ đồng)."
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/detailpaper" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/merriweather_regular"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="5sp"
+                    android:text="Công ty Nước giải khát Chương Dương lỗ gần 20 tỷ đồng trong ba tháng đầu năm và là quý thứ 13 liên tiếp kinh doanh dưới giá vốn.
+
+Báo cáo tài chính mới đây cho thấy, Công ty cổ phần Nước giải khát Chương Dương (SCD) có doanh thu khoảng 56,8 tỷ đồng, giảm 11% so với quý I/2022. Trong đó, doanh thu kinh doanh bất động sản đầu tư tăng gấp đôi, đạt hơn 6,2 tỷ đồng nhưng không đủ bù đắp so với phần thâm hụt của doanh thu bán thành phẩm (giảm gần 10 tỷ về 52,7 tỷ đồng)."
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20sp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/arrow_left_solid" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="right"
+                    android:layout_marginEnd="20sp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30sp"
+                        android:layout_height="30sp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/chat1" />
+                    <ImageView
+                        android:layout_width="27sp"
+                        android:layout_height="27sp"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/bookmark_regular__1_" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+
+

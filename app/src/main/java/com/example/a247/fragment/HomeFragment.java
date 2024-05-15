@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 
 import com.example.a247.ListPaper;
 import com.example.a247.R;
+import com.example.a247.adapter.ListPaperAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -87,12 +87,12 @@ public class HomeFragment extends Fragment {
 
     private void initDATA() {
         mlist = new ArrayList<>();
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Chứng khoán đứt mạch tăng","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20"));
+        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Chứng khoán đứt mạch tăng","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
     }
 }

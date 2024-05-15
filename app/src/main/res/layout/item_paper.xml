@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:showDividers="end"
+    android:divider="@drawable/divider"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="50dp"
+                app:cardCornerRadius="10dp">
+                <ImageView
+                    android:id="@+id/img_paperR"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/z5425521804111_f1420e8cb9c71cef2b6ed52b53374874"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_titleR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merriweather_bold"
+                    android:text="Đường Láng sẽ được mở rộng gấp đôi"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_textR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Hà Nội sẽ mở rộng đường Láng từ khoảng 21 m cả hai chiều hiện nay lên 53,5 m, đồng thời xây dựng đường trên cao từ Ngã Tư Sở đến Cầu Giấy."
+                    android:textColor="#5E5E5E"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_timeR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="12:11"
+            android:textColor="#5E5E5E"
+            android:textSize="12dp"
+            android:fontFamily="@font/arial_regular"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+            <TextView
+                android:id="@+id/tv_categoryPaperR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#5E5E5E"
+                android:text="Thể thao"
+                android:textSize="12dp"
+                android:fontFamily="@font/arial_regular"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.a247.fragment;
+package com.example.a247.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -51,7 +51,7 @@ public class ListPaperAdapter extends RecyclerView.Adapter<ListPaperAdapter.List
 
     public class ListPaperHolder extends RecyclerView.ViewHolder{
         private ImageView img_paper;
-        private TextView tv_title, tv_text, tv_time;
+        private TextView tv_title, tv_text, tv_time, tv_categorypaper;
         public ListPaperHolder(@NonNull View itemView) {
             super(itemView);
             img_paper = itemView.findViewById(R.id.img_paper);
