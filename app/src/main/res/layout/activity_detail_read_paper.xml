@@ -35,9 +35,8 @@
 
     </LinearLayout>
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="505dp"
         android:divider="@drawable/divider"
         android:showDividers="end">
 
@@ -122,44 +121,43 @@ Báo cáo tài chính mới đây cho thấy, Công ty cổ phần Nước giả
 Báo cáo tài chính mới đây cho thấy, Công ty cổ phần Nước giải khát Chương Dương (SCD) có doanh thu khoảng 56,8 tỷ đồng, giảm 11% so với quý I/2022. Trong đó, doanh thu kinh doanh bất động sản đầu tư tăng gấp đôi, đạt hơn 6,2 tỷ đồng nhưng không đủ bù đắp so với phần thâm hụt của doanh thu bán thành phẩm (giảm gần 10 tỷ về 52,7 tỷ đồng)."
                     android:textSize="14dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:orientation="horizontal">
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20sp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/arrow_left_solid" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="right"
-                    android:layout_marginEnd="20sp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="30sp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/chat1" />
-                    <ImageView
-                        android:layout_width="27sp"
-                        android:layout_height="27sp"
-                        android:layout_marginStart="20dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/bookmark_regular__1_" />
-                </LinearLayout>
-
-            </LinearLayout>
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/arrow_left_solid" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:layout_marginEnd="20sp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/chat1" />
+            <ImageView
+                android:layout_width="27sp"
+                android:layout_height="27sp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bookmark_regular__1_" />
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </LinearLayout>
 
 
