@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.a247.ListPaper;
 import com.example.a247.R;
 import com.example.a247.ReadThePaperAdapter;
-import com.example.a247.adapter.ListPaperAdapter;
 
 import java.util.ArrayList;
 

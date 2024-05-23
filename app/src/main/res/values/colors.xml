@@ -7,4 +7,6 @@
     <color name="custum_3">#2196F3</color>
     <color name="custum_4">#E91E63</color>
     <color name="custum_5">#2C2A2B</color>
+    <color name="bg_icon">#ECECEC</color>
+    <color name="primary">#1F41BB</color>
 </resources>

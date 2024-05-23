@@ -1,27 +1,26 @@
-package com.example.a247.adapter;
+package com.example.a247.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.a247.ItemClickListener;
 import com.example.a247.ListPaper;
 import com.example.a247.R;
 
 import java.util.List;
 
 public class ListPaperAdapter extends RecyclerView.Adapter<ListPaperAdapter.ListPaperHolder>{
-    private Context context;
     private List<ListPaper> paperList;
+    private ItemClickListener itemClickListener;
 
-    public ListPaperAdapter(Context context, List<ListPaper> paperList) {
-        this.context = context;
+    public ListPaperAdapter(List<ListPaper> paperList, ItemClickListener itemClickListener) {
         this.paperList = paperList;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -29,10 +28,6 @@ public class ListPaperAdapter extends RecyclerView.Adapter<ListPaperAdapter.List
     public ListPaperHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.paper_list_home,parent,false);
         return new ListPaperHolder(view);
-    }
-    public void setData(List<ListPaper> itemList) {
-        this.paperList = itemList;
-        notifyDataSetChanged();
     }
 
     @Override
@@ -58,6 +53,12 @@ public class ListPaperAdapter extends RecyclerView.Adapter<ListPaperAdapter.List
             tv_title = itemView.findViewById(R.id.tv_title);
             tv_text = itemView.findViewById(R.id.tv_text);
             tv_time = itemView.findViewById(R.id.tv_time);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickListener.OnItemClick(getAdapterPosition());
+                }
+            });
         }
     }
 }

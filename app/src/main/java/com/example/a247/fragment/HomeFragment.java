@@ -1,5 +1,6 @@
 package com.example.a247.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,15 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.a247.ListPaper;
+import com.example.a247.PaperAdapter;
+import com.example.a247.DAO.PaperDAO;
+import com.example.a247.DetailReadPaper;
+import com.example.a247.ItemClickListener;
+import com.example.a247.Model.Paper;
 import com.example.a247.R;
-import com.example.a247.adapter.ListPaperAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements ItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,8 +36,8 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView rcv_listpaper;
-    private ArrayList<ListPaper> mlist;
-    private ListPaperAdapter adapter;
+    private List<Paper> mlist;
+    private PaperAdapter adapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -77,22 +83,34 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rcv_listpaper = view.findViewById(R.id.rcv_listpaper);
         initDATA();
-
         rcv_listpaper.setLayoutManager(new LinearLayoutManager(getContext()));
         rcv_listpaper.setHasFixedSize(true);
-        adapter = new ListPaperAdapter(getContext(),mlist);
+        adapter = new PaperAdapter(mlist, HomeFragment.this,this);
         rcv_listpaper.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
     private void initDATA() {
         mlist = new ArrayList<>();
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Chứng khoán đứt mạch tăng","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        PaperDAO dao = new PaperDAO(HomeFragment.this);
+        mlist = dao.getAll();
+//        mlist.add(new Paper(1,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.img,"19:11","22/02/2024",1,"",""));
+//        mlist.add(new Paper(2,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"19:11","22/02/2024",1,"",""));
+//        mlist.add(new Paper(3,"Chứng khoán đứt mạch tăng","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"19:11","22/02/2024",1,"",""));
+//        mlist.add(new Paper(4,"Đổ xô đi mua vàng khi giá lập đỉnh","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"19:11","22/02/2024",1,"",""));
+//        mlist.add(new Paper(5,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"19:11","22/02/2024",1,"",""));
+//        mlist.add(new Paper(6,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.img,"19:11","22/02/2024",1,"",""));
     }
+
+
+    @Override
+    public void OnItemClick(int positionItem) {
+        int id = mlist.get(positionItem).getPaperID();
+        Intent intent = new Intent(getActivity(), DetailReadPaper.class);
+        Bundle myBundle = new Bundle();
+        myBundle.putInt("PaperID",id);
+        intent.putExtra("bundle_paperid",myBundle);
+        startActivity(intent);
+    }
+
 }

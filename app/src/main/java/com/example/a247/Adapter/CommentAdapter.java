@@ -1,4 +1,4 @@
-package com.example.a247;
+package com.example.a247.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,21 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Comment;
+import com.example.a247.Model.Comment;
+import com.example.a247.R;
 
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
     private Context context;
-    private List<CommetPaper> commetPaperList;
+    private List<Comment> commetPaperList;
 
-    public CommentAdapter(Context context) {
+    public CommentAdapter(Context context, List<Comment> commetPaperList) {
         this.context = context;
-    }
-    public void setData(List<CommetPaper> commetPaperList) {
         this.commetPaperList = commetPaperList;
-        notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,10 +32,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
-        CommetPaper comment = commetPaperList.get(position);
-        holder.tv_username.setText(comment.getTv_username());
-        holder.tv_timeComment.setText(comment.getTv_timeComment());
-        holder.tv_textComment.setText(comment.getTv_textComment());
+        Comment comment = commetPaperList.get(position);
+        holder.tv_username.setText(String.valueOf(comment.getProfileID()));
+        holder.tv_timeComment.setText(comment.getTime_comment());
+        holder.tv_textComment.setText(comment.getText_comment());
     }
 
     @Override
