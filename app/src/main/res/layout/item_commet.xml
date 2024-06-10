@@ -6,9 +6,7 @@
     app:cardCornerRadius="10dp"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="10dp"
-    android:elevation="20sp"
-    android:background="#F8F8F8"
-    android:orientation="vertical">
+    android:backgroundTint="#F6F6F6">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,8 +18,8 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="60sp"
-                android:layout_height="60sp"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
                 android:src="@drawable/img_user"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,22 +33,34 @@
                     android:layout_height="wrap_content"
                     android:text="Vân Anh"
                     android:fontFamily="@font/merriweather_bold"
-                    android:textSize="18dp"/>
-                <TextView
-                    android:id="@+id/tv_timeComment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="10:27 - 27/04/2024"
-                    android:fontFamily="@font/merriweather_regular"
                     android:textSize="14dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_timeComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="10:27"
+                        android:fontFamily="@font/merriweather_regular"
+                        android:textSize="12dp"/>
+                    <TextView
+                        android:id="@+id/tv_dateComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="27/04/2024"
+                        android:fontFamily="@font/merriweather_regular"
+                        android:textSize="12dp"/>
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
-
             android:layout_marginEnd="10sp">
             <TextView
                 android:id="@+id/tv_textCommet"
@@ -59,6 +69,7 @@
                 android:text="Kinh tế suy thoái, nhà nước đang mạnh tay thiết chặt các quản lí."
                 android:fontFamily="@font/merriweather_regular"
                 android:lineSpacingExtra="7dp"
+                android:textSize="12dp"
                 android:letterSpacing="0.02"/>
         </LinearLayout>
     </LinearLayout>

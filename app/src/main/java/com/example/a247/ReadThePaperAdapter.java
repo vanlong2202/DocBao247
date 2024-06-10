@@ -10,16 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.a247.Model.Paper;
+import com.example.a247.fragment.ReadThePaperFragment;
+
 import java.util.List;
 
 public class ReadThePaperAdapter extends RecyclerView.Adapter<ReadThePaperAdapter.ReadThePaperViewHolder>{
-    private Context context;
+    ReadThePaperFragment context;
 
-    private List<ListPaper> paperList;
+    private List<Paper> paperList;
+    private ItemClickListener itemClickListener;
 
-    public ReadThePaperAdapter(Context context, List<ListPaper> paperList) {
+    public ReadThePaperAdapter(ReadThePaperFragment context, List<Paper> paperList,ItemClickListener itemClickListener) {
         this.context = context;
         this.paperList = paperList;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -31,17 +36,19 @@ public class ReadThePaperAdapter extends RecyclerView.Adapter<ReadThePaperAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ReadThePaperViewHolder holder, int position) {
-        ListPaper list = paperList.get(position);
-        holder.img_paper.setImageResource(list.getImg_paper());
-        holder.tv_title.setText(list.getTv_title());
-        holder.tv_text.setText(list.getTv_text());
-        holder.tv_time.setText(list.getTv_time());
-        holder.tv_categary.setText(list.getTv_categorypaper());
+        Paper list = paperList.get(position);
+        holder.tv_title.setText(list.getTitle_paper());
+        holder.tv_text.setText(list.getText1_paper());
+        holder.tv_time.setText(list.getTime_paper());
+        holder.tv_categary.setText(list.getCategory_name());
+        String image = list.getImg_paper();
+        int imageResource = (context.getResources().getIdentifier(image,"drawable",context.getActivity().getPackageName()));
+        holder.img_paper.setImageResource(imageResource);
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 
     public class ReadThePaperViewHolder extends RecyclerView.ViewHolder{
@@ -55,6 +62,12 @@ public class ReadThePaperAdapter extends RecyclerView.Adapter<ReadThePaperAdapte
             tv_text = itemView.findViewById(R.id.tv_textR);
             tv_time= itemView.findViewById(R.id.tv_timeR);
             tv_categary = itemView.findViewById(R.id.tv_categoryPaperR);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickListener.OnItemClick(getAdapterPosition());
+                }
+            });
         }
     }
 }

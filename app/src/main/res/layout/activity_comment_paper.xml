@@ -22,12 +22,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_gravity="center"
+                    android:id="@+id/img_back"
                     android:layout_width="20sp"
-                    android:layout_height="20sp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
                     android:layout_marginStart="10sp"
-                    android:src="@drawable/chevron_left_solid"/>
+                    android:src="@drawable/chevron_left_solid" />
                 <LinearLayout
                     android:gravity="center"
                     android:layout_marginEnd="30sp"
@@ -72,18 +74,22 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             app:cardCornerRadius="10dp"
-            android:layout_margin="10dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp">
             <EditText
-                android:layout_width="287dp"
+                android:id="@+id/edt_comment"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:textSize="14dp"
-                android:fontFamily="@font/merriweather_bold"
+                android:textSize="12dp"
+                android:fontFamily="@font/merriweather_regular"
                 android:hint="Viết bình luận ..."
                 android:padding="10dp"
-                android:textColorHint="#767474" />
+                android:textColorHint="#767474"/>
         </androidx.cardview.widget.CardView>
         <LinearLayout
+            android:id="@+id/btn_comment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">

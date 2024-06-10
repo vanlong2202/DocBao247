@@ -1,9 +1,13 @@
 package com.example.a247.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,18 +15,28 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.a247.ListPaper;
+import com.example.a247.CategoryPaperRss;
+import com.example.a247.CategyPaper;
+import com.example.a247.DAO.PaperDAO;
+import com.example.a247.DetailReadPaper;
+import com.example.a247.ItemClickListener;
+import com.example.a247.Model.Paper;
 import com.example.a247.R;
 import com.example.a247.ReadThePaperAdapter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ReadThePaperFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ReadThePaperFragment extends Fragment {
+public class ReadThePaperFragment extends Fragment implements ItemClickListener {
+    private LinearLayout btn_category1,btn_category2,btn_category3,btn_category4;
+    private ImageView img_category1,img_category2,img_category3,img_category4;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +47,9 @@ public class ReadThePaperFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView rcv_paperupdate, rcv_listpaper1, rcv_listpaper2, rcv_listpaper3, rcv_listpaper4;
-    private ArrayList<ListPaper> mlist;
-    private ReadThePaperAdapter adapter;
+    private List<Paper> mlist, mlist1, mlist2;
+    private ReadThePaperAdapter adapter,adapter1,adapter2;
+    private TextView tv_time;
 
     public ReadThePaperFragment() {
         // Required empty public constructor
@@ -77,12 +92,17 @@ public class ReadThePaperFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rcv_paperupdate = view.findViewById(R.id.rcv_paperupdate);
+        tv_time = view.findViewById(R.id.tv_time);
+        Date today = new Date();
+        tv_time.setText(getDayAndDate(today));
         rcv_listpaper1 = view.findViewById(R.id.rcv_paperlist1);
         rcv_listpaper2 = view.findViewById(R.id.rcv_paperlist2);
         rcv_listpaper3 = view.findViewById(R.id.rcv_paperlist3);
         rcv_listpaper4 = view.findViewById(R.id.rcv_paperlist4);
 
         initDATA();
+        initDATA1();
+        initDATA2();
 
         rcv_paperupdate.setLayoutManager(new LinearLayoutManager(getContext()));
         rcv_paperupdate.setHasFixedSize(true);
@@ -99,23 +119,150 @@ public class ReadThePaperFragment extends Fragment {
         rcv_listpaper4.setLayoutManager(new LinearLayoutManager(getContext()));
         rcv_listpaper4.setHasFixedSize(true);
 
-        adapter = new ReadThePaperAdapter(getContext(),mlist);
+        adapter = new ReadThePaperAdapter(this,mlist,this);
+        adapter1 = new ReadThePaperAdapter(this,mlist1,this);
+        adapter2 = new ReadThePaperAdapter(this,mlist2,this);
         rcv_paperupdate.setAdapter(adapter);
-        rcv_listpaper1.setAdapter(adapter);
+        rcv_listpaper1.setAdapter(adapter1);
         rcv_listpaper2.setAdapter(adapter);
-        rcv_listpaper3.setAdapter(adapter);
+        rcv_listpaper3.setAdapter(adapter2);
         rcv_listpaper4.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        btn_category1 = view.findViewById(R.id.category1);
+        btn_category2 = view.findViewById(R.id.category2);
+        btn_category3 = view.findViewById(R.id.category3);
+        btn_category4 = view.findViewById(R.id.category4);
+        img_category1 = view.findViewById(R.id.img_category1);
+        img_category2 = view.findViewById(R.id.img_category2);
+        img_category3 = view.findViewById(R.id.img_category3);
+        img_category4 = view.findViewById(R.id.img_category4);
+        btn_category1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 1;
+                String url = "https://vnexpress.net/rss/the-thao.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        img_category1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 1;
+                String url = "https://vnexpress.net/rss/the-thao.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        btn_category2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 2;
+                String url = "https://vnexpress.net/rss/thoi-su.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        img_category2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 2;
+                String url = "https://vnexpress.net/rss/thoi-su.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        btn_category3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 3;
+                String url = "https://vnexpress.net/rss/suc-khoe.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        img_category3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 3;
+                String url = "https://vnexpress.net/rss/suc-khoe.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        btn_category4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 4;
+                String url = "https://vnexpress.net/rss/kinh-doanh.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
+        img_category4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int Category = 4;
+                String url = "https://vnexpress.net/rss/kinh-doanh.rss";
+                Intent intent = new Intent(getActivity(), CategoryPaperRss.class);
+                intent.putExtra("CategoryID",Category);
+                intent.putExtra("URL",url);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initDATA() {
         mlist = new ArrayList<>();
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20","Thể Thao"));
-        mlist.add(new ListPaper(R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20","Chính Trị"));
-        mlist.add(new ListPaper(R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Chứng khoán đứt mạch tăng","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
-        mlist.add(new ListPaper(R.drawable.img,"Đổ xô đi mua vàng khi giá lập đỉnh","Lượt khách mua bán vàng miếng, nhẫn trơn tại một số thương hiệu lớn nhộn nhịp trong ngày giá liên tiếp phá đỉnh.","19:20",""));
+        PaperDAO dao = new PaperDAO(ReadThePaperFragment.this);
+        mlist = dao.getAllOrderBy();
+    }
+    private void initDATA1() {
+        mlist1 = new ArrayList<>();
+        PaperDAO dao = new PaperDAO(ReadThePaperFragment.this);
+        mlist1 = dao.getAllByCactegoryID(1);
+    }
+    private void initDATA2() {
+        mlist2 = new ArrayList<>();
+        PaperDAO dao = new PaperDAO(ReadThePaperFragment.this);
+        mlist2 = dao.getAllByCactegoryID(2);
+    }
+
+    @Override
+    public void OnItemClick(int positionItem) {
+        int id = mlist.get(positionItem).getPaperID();
+        Intent intent = new Intent(getActivity(), DetailReadPaper.class);
+        intent.putExtra("PaperID",id);
+        startActivity(intent);
+    }
+    public static String getDayAndDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        String[] days = {"Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"};
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int year = calendar.get(Calendar.YEAR);
+
+        String dayName = days[dayOfWeek - 1];
+
+        return dayName + ", " + day +"/"+ month +"/"+ year;
     }
 }

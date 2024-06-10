@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a247.PaperAdapter;
@@ -22,11 +25,12 @@ import com.example.a247.Model.Paper;
 import com.example.a247.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
 public class HomeFragment extends Fragment implements ItemClickListener {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,6 +42,7 @@ public class HomeFragment extends Fragment implements ItemClickListener {
     private RecyclerView rcv_listpaper;
     private List<Paper> mlist;
     private PaperAdapter adapter;
+    private TextView tv_time;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -82,6 +87,9 @@ public class HomeFragment extends Fragment implements ItemClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rcv_listpaper = view.findViewById(R.id.rcv_listpaper);
+        tv_time = view.findViewById(R.id.tv_time);
+        Date today = new Date();
+        tv_time.setText(getDayAndDate(today));
         initDATA();
         rcv_listpaper.setLayoutManager(new LinearLayoutManager(getContext()));
         rcv_listpaper.setHasFixedSize(true);
@@ -94,12 +102,6 @@ public class HomeFragment extends Fragment implements ItemClickListener {
         mlist = new ArrayList<>();
         PaperDAO dao = new PaperDAO(HomeFragment.this);
         mlist = dao.getAll();
-//        mlist.add(new Paper(1,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.img,"19:11","22/02/2024",1,"",""));
-//        mlist.add(new Paper(2,"Việt Nam hoan nghênh Mỹ sớm công nhận quy chế kinh tế thị trường","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521795153_2fc7a6d78b7df8426eef80b3b51cbb62,"19:11","22/02/2024",1,"",""));
-//        mlist.add(new Paper(3,"Chứng khoán đứt mạch tăng","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521804111_f1420e8cb9c71cef2b6ed52b53374874,"19:11","22/02/2024",1,"",""));
-//        mlist.add(new Paper(4,"Đổ xô đi mua vàng khi giá lập đỉnh","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521811267_dbbaac8b60b9d44d91d695beae1a879d,"19:11","22/02/2024",1,"",""));
-//        mlist.add(new Paper(5,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.z5425521811268_a79e59be0ff401231cbddcaacbf9b5de,"19:11","22/02/2024",1,"",""));
-//        mlist.add(new Paper(6,"Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý","Gần 9.000 căn hộ tái định cư bỏ trống, nợ phí quản lý",R.drawable.img,"19:11","22/02/2024",1,"",""));
     }
 
 
@@ -107,10 +109,24 @@ public class HomeFragment extends Fragment implements ItemClickListener {
     public void OnItemClick(int positionItem) {
         int id = mlist.get(positionItem).getPaperID();
         Intent intent = new Intent(getActivity(), DetailReadPaper.class);
-        Bundle myBundle = new Bundle();
-        myBundle.putInt("PaperID",id);
-        intent.putExtra("bundle_paperid",myBundle);
+        intent.putExtra("PaperID",id);
         startActivity(intent);
+    }
+
+    public static String getDayAndDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        String[] days = {"Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"};
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int year = calendar.get(Calendar.YEAR);
+
+        String dayName = days[dayOfWeek - 1];
+
+        return dayName + ", " + day +"/"+ month +"/"+ year;
     }
 
 }

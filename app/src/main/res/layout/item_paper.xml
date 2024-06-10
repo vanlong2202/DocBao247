@@ -45,7 +45,7 @@
                 <TextView
                     android:id="@+id/tv_textR"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginTop="7sp"
                     android:fontFamily="@font/roboto_regular"
                     android:text="Hà Nội sẽ mở rộng đường Láng từ khoảng 21 m cả hai chiều hiện nay lên 53,5 m, đồng thời xây dựng đường trên cao từ Ngã Tư Sở đến Cầu Giấy."

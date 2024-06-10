@@ -5,10 +5,7 @@ public class Account {
     private String Password;
     private String Description;
 
-    public Account(String userID, String password, String description) {
-        UserID = userID;
-        Password = password;
-        Description = description;
+    public Account() {
     }
 
     public String getUserID() {

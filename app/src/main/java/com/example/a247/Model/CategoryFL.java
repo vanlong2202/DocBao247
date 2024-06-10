@@ -4,13 +4,26 @@ public class CategoryFL {
     private int CategoryFLID;
     private int CategoryID;
     private int ProfileID;
-    private String Description;
+    private String CategoryName;
+    private String Link;
 
-    public CategoryFL(int categoryFLID, int categoryID, int profileID, String description) {
+    public CategoryFL() {
+    }
+
+    public CategoryFL(int categoryFLID, int categoryID, int profileID, String categoryName, String link) {
         CategoryFLID = categoryFLID;
         CategoryID = categoryID;
         ProfileID = profileID;
-        Description = description;
+        CategoryName = categoryName;
+        Link = link;
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setLink(String link) {
+        Link = link;
     }
 
     public int getCategoryFLID() {
@@ -37,12 +50,12 @@ public class CategoryFL {
         ProfileID = profileID;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getCategoryName() {
+        return CategoryName;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setCategoryName(String categoryName) {
+        CategoryName = categoryName;
     }
 
     @Override
@@ -51,7 +64,7 @@ public class CategoryFL {
                 "CategoryFLID=" + CategoryFLID +
                 ", CategoryID=" + CategoryID +
                 ", ProfileID=" + ProfileID +
-                ", Description='" + Description + '\'' +
+                ", CategoryName='" + CategoryName + '\'' +
                 '}';
     }
 }

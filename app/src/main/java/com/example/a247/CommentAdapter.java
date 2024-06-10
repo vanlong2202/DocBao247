@@ -1,4 +1,4 @@
-package com.example.a247.Adapter;
+package com.example.a247;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a247.Model.Comment;
-import com.example.a247.R;
 
 import java.util.List;
 
@@ -21,6 +20,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     public CommentAdapter(Context context, List<Comment> commetPaperList) {
         this.context = context;
         this.commetPaperList = commetPaperList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -33,9 +33,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
         Comment comment = commetPaperList.get(position);
-        holder.tv_username.setText(String.valueOf(comment.getProfileID()));
+        holder.tv_username.setText(String.valueOf(comment.getFullname()));
         holder.tv_timeComment.setText(comment.getTime_comment());
         holder.tv_textComment.setText(comment.getText_comment());
+        holder.tv_date.setText(comment.getDate_comment());
     }
 
     @Override
@@ -44,12 +45,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     }
 
     public class CommentViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_username, tv_timeComment, tv_textComment;
+        TextView tv_username, tv_timeComment, tv_textComment, tv_date;
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_username = itemView.findViewById(R.id.tv_username);
             tv_timeComment = itemView.findViewById(R.id.tv_timeComment);
             tv_textComment = itemView.findViewById(R.id.tv_textCommet);
+            tv_date = itemView.findViewById(R.id.tv_dateComment);
         }
     }
 

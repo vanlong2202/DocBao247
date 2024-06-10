@@ -18,7 +18,7 @@ import com.example.a247.Model.Paper;
 public class DetailReadPaper extends AppCompatActivity {
     TextView tv_category, tv_timepaper, tv_title, tv_text1, tv_text2, tv_date;
     ImageView img_paper;
-    ImageView btn_comment;
+    ImageView btn_comment, back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +31,15 @@ public class DetailReadPaper extends AppCompatActivity {
         tv_text2 = findViewById(R.id.tv_text2Paper);
         img_paper = findViewById(R.id.imgPaper);
         tv_date = findViewById(R.id.tv_datePaper);
-
+        back = findViewById(R.id.img_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         Intent intent = getIntent();
-
-        Bundle getBundle = intent.getBundleExtra("bundle_paperid");
-        int paperID = getBundle.getInt("PaperID");
+        int paperID = intent.getIntExtra("PaperID",-1);
 
         PaperDAO dao = new PaperDAO(DetailReadPaper.this);
         Paper paper = new Paper();
@@ -50,11 +54,14 @@ public class DetailReadPaper extends AppCompatActivity {
         String image = paper.getImg_paper();
         int imageResource = getResources().getIdentifier(image,"drawable",getPackageName());
         img_paper.setImageResource(imageResource);
-
+        int id = paper.getPaperID();
         btn_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailReadPaper.this, CommentPaper.class);
+                Bundle myBundle = new Bundle();
+                myBundle.putInt("PaperID",id);
+                intent.putExtra("bundle_paperid",myBundle);
                 startActivity(intent);
             }
         });

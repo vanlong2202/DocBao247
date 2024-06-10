@@ -8,8 +8,9 @@ public class Comment {
     private String Time_comment;
     private String Date_comment;
     private String Description;
+    private String Fullname;
 
-    public Comment(int commentID, int paperID, int profileID, String text_comment, String time_comment, String date_comment, String description) {
+    public Comment(int commentID, int paperID, int profileID, String text_comment, String time_comment, String date_comment, String description, String fullname) {
         CommentID = commentID;
         PaperID = paperID;
         ProfileID = profileID;
@@ -17,6 +18,11 @@ public class Comment {
         Time_comment = time_comment;
         Date_comment = date_comment;
         Description = description;
+        Fullname = fullname;
+    }
+
+    public Comment() {
+
     }
 
     public int getCommentID() {
@@ -75,6 +81,14 @@ public class Comment {
         Description = description;
     }
 
+    public String getFullname() {
+        return Fullname;
+    }
+
+    public void setFullname(String fullname) {
+        Fullname = fullname;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +
@@ -85,6 +99,7 @@ public class Comment {
                 ", Time_comment='" + Time_comment + '\'' +
                 ", Date_comment='" + Date_comment + '\'' +
                 ", Description='" + Description + '\'' +
+                ", Fullname='" + Fullname + '\'' +
                 '}';
     }
 }

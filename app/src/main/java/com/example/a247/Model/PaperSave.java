@@ -4,13 +4,20 @@ public class PaperSave {
     private int PaperSaveID;
     private int PaperID;
     private int ProfileID;
-    private String Description;
+    private String title;
+    private String time;
+    private String date;
 
-    public PaperSave(int paperSaveID, int paperID, int profileID, String description) {
+    public PaperSave() {
+    }
+
+    public PaperSave(int paperSaveID, int paperID, int profileID, String title, String time, String date) {
         PaperSaveID = paperSaveID;
         PaperID = paperID;
         ProfileID = profileID;
-        Description = description;
+        this.title = title;
+        this.time = time;
+        this.date = date;
     }
 
     public int getPaperSaveID() {
@@ -37,12 +44,28 @@ public class PaperSave {
         ProfileID = profileID;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
@@ -51,7 +74,9 @@ public class PaperSave {
                 "PaperSaveID=" + PaperSaveID +
                 ", PaperID=" + PaperID +
                 ", ProfileID=" + ProfileID +
-                ", Description='" + Description + '\'' +
+                ", title='" + title + '\'' +
+                ", time='" + time + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

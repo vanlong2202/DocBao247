@@ -1,14 +1,20 @@
 package com.example.a247;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.a247.DAO.AccountManeger;
+import com.example.a247.DAO.PaperDAO;
+import com.example.a247.DAO.PaperSaveDAO;
 import com.example.a247.Model.Paper;
 import com.example.a247.fragment.HomeFragment;
 
@@ -41,6 +47,41 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.PaperViewHol
         holder.tv_title.setText(paper.getTitle_paper());
         holder.tv_text.setText(paper.getText1_paper());
         holder.tv_time.setText(paper.getTime_paper());
+        holder.tv_date.setText(paper.getDate_paper());
+        AccountManeger accountManeger = new AccountManeger(context.getContext());
+        boolean checkLogin = accountManeger.isLoggedIn();
+        PaperSaveDAO paperSaveDAO = new PaperSaveDAO(context.getContext());
+
+        if (checkLogin){
+            int ProfileID = accountManeger.getProfileID();
+            int PaperID = paper.getPaperID();
+            boolean checkSave = paperSaveDAO.CheckPaperSave(PaperID,ProfileID);
+            if (checkSave){
+                holder.paperSave.setImageResource(R.drawable.bookmark_solid);
+            }
+        }
+        holder.paperSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (checkLogin){
+                    int ProfileID = accountManeger.getProfileID();
+                    int PaperID = paper.getPaperID();
+                    boolean checkSave = paperSaveDAO.CheckPaperSave(PaperID,ProfileID);
+                    if (checkSave){
+                        paperSaveDAO.DeletePaperSave(PaperID, ProfileID);
+                        holder.paperSave.setImageResource(R.drawable.bookmark_regular);
+                    }
+                    else {
+                        paperSaveDAO.SavePaper(PaperID, ProfileID);
+                        holder.paperSave.setImageResource(R.drawable.bookmark_solid);
+                    }
+                }
+                else {
+                    Toast.makeText(context.getContext(), "Vui lòng đăng nhập.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -49,14 +90,16 @@ public class PaperAdapter extends RecyclerView.Adapter<PaperAdapter.PaperViewHol
     }
 
     public class PaperViewHolder extends RecyclerView.ViewHolder{
-        ImageView img_paper;
-        TextView tv_title, tv_text, tv_time;
+        ImageView img_paper, paperSave;
+        TextView tv_title, tv_text, tv_time, tv_date;
         public PaperViewHolder(@NonNull View itemView) {
             super(itemView);
             img_paper = itemView.findViewById(R.id.img_paper);
             tv_title = itemView.findViewById(R.id.tv_title);
             tv_text = itemView.findViewById(R.id.tv_text);
             tv_time = itemView.findViewById(R.id.tv_time);
+            tv_date = itemView.findViewById(R.id.tv_date);
+            paperSave = itemView.findViewById(R.id.paperSaver);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

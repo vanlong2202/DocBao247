@@ -9,14 +9,7 @@ public class Profile {
     private int Sex;
     private String Description;
 
-    public Profile(int profileID, String fullname, String userID, String phone, String address, int sex, String description) {
-        ProfileID = profileID;
-        Fullname = fullname;
-        UserID = userID;
-        Phone = phone;
-        Address = address;
-        Sex = sex;
-        Description = description;
+    public Profile() {
     }
 
     public int getProfileID() {

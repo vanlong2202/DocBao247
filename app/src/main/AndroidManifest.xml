@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +14,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._247"
         tools:targetApi="31">
+        <activity
+            android:name=".CommentUser"
+            android:exported="false" />
+        <activity
+            android:name=".PaperOrtherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaperSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryFollow"
+            android:exported="false" />
+        <activity
+            android:name=".CategyPaper"
+            android:exported="false" />
+        <activity
+            android:name=".DetailPaperRss"
+            android:exported="false" />
+        <activity
+            android:name=".EditPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryPaperRss"
+            android:exported="false" />
         <activity
             android:name=".DetailReadPaper"
             android:exported="false" />
@@ -28,7 +54,7 @@
             android:name=".CommentPaper"
             android:exported="false" />
         <activity
-            android:name=".CategyPaper"
+            android:name=".DetailProfile"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
